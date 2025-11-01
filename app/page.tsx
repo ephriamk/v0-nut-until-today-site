@@ -286,6 +286,11 @@ export default function Home() {
                   alt: "Monk in Graveyard - Wisdom Over Trading Mistakes",
                   isLocal: true 
                 },
+                { 
+                  src: "/f849b6fa-c847-4a9b-904d-728c82c030ca.jpeg", 
+                  alt: "Devil Tempting Monk with Candlestick Chart - Resist the Trade",
+                  isLocal: true 
+                },
                 { query: "funny meme about not trading at 3am crypto", alt: "3AM Trading Meme", isLocal: false },
                 { query: "meme about resisting FOMO in crypto trading", alt: "FOMO Resistance Meme", isLocal: false },
                 { query: "funny meme about checking charts too much", alt: "Chart Checking Meme", isLocal: false },
@@ -329,15 +334,15 @@ export default function Home() {
                     </div>
                     
                     {/* Main Content Area */}
-                    <div className="pt-14 pb-14 px-6 relative z-0">
-                       {/* Image Container with Inner Shadow - Lighter */}
-                       <div className="aspect-square relative overflow-hidden rounded-sm border-2 border-amber-200/60 dark:border-amber-600/50 shadow-xl bg-white/50 dark:bg-black/20" 
+                    <div className="pt-10 pb-10 px-4 relative z-0 flex flex-col">
+                       {/* Image Container with Inner Shadow - Fixed height for uniform cards */}
+                       <div className="relative h-[320px] w-full overflow-hidden rounded-sm border-2 border-amber-200/60 dark:border-amber-600/50 shadow-xl bg-white/50 dark:bg-black/20" 
                          style={{
                            boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.08), 0 4px 16px rgba(217, 119, 6, 0.2)'
                          }}>
                         <img
-                          src={meme.isLocal ? meme.src : `/.jpg?height=400&width=400&query=${encodeURIComponent(meme.query)}`}
-                          alt={meme.alt}
+                          src={meme.isLocal ? meme.src : `/.jpg?height=400&width=400&query=${encodeURIComponent(meme.query || '')}`}
+                      alt={meme.alt}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         />
                         {/* Inner vignette */}
@@ -346,10 +351,10 @@ export default function Home() {
                         }}></div>
                       </div>
                       
-                       {/* Title Text - Lighter */}
-                       <div className="mt-6 px-4 relative">
+                       {/* Title Text - Lighter - Fixed height for consistency */}
+                       <div className="mt-4 px-3 relative min-h-[60px] flex items-center">
                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-100/30 to-transparent dark:via-amber-800/25 blur-sm"></div>
-                         <p className="text-base md:text-lg text-foreground text-center font-medium italic leading-relaxed relative z-10" 
+                         <p className="text-base md:text-lg text-foreground text-center font-medium italic leading-relaxed relative z-10 w-full" 
                             style={{ textShadow: '0 1px 2px rgba(255,255,255,0.5), 0 1px 1px rgba(0,0,0,0.05)' }}>
                            {meme.alt}
                          </p>
@@ -411,7 +416,7 @@ export default function Home() {
                       <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-amber-500/25 dark:bg-amber-500/35 rounded-full"></div>
                     </div>
                   </div>
-                </div>
+                  </div>
               ))}
             </div>
           </div>
