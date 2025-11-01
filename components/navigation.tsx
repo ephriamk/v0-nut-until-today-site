@@ -34,38 +34,40 @@ export function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-gradient-to-r from-background via-background/98 to-background backdrop-blur-xl shadow-2xl border-b-2 border-primary/30"
-          : "bg-gradient-to-b from-background/80 to-transparent backdrop-blur-sm"
+          ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-primary/20"
+          : "bg-background/80 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-3">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3">
+        <div className="flex items-center justify-between gap-4">
+          {/* Logo */}
           <button
             onClick={() => scrollToSection("hero")}
-            className="group flex items-center gap-2 text-3xl font-black text-primary hover:scale-110 transition-all duration-300 relative"
+            className="group flex items-center gap-2 text-2xl md:text-3xl font-black text-primary hover:scale-110 transition-all duration-300 relative flex-shrink-0"
           >
-            <span className="text-4xl animate-pulse-slow group-hover:rotate-12 transition-transform duration-300">
+            <span className="text-3xl md:text-4xl animate-pulse-slow group-hover:rotate-12 transition-transform duration-300">
               🥜
             </span>
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
+            <span className="text-primary">
               $NUT
             </span>
             <div className="absolute -inset-2 bg-primary/10 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
           </button>
 
-          <div className="hidden md:flex items-center gap-1">
+          {/* Navigation Items */}
+          <div className="flex-1 flex items-center justify-center gap-1 md:gap-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 onMouseEnter={() => setHoveredItem(item.id)}
                 onMouseLeave={() => setHoveredItem(null)}
-                className="relative px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 group"
+                className="relative px-3 md:px-4 py-2 rounded-lg font-semibold text-xs md:text-sm transition-all duration-300 hover:scale-105 group"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  <span className="text-lg group-hover:scale-125 transition-transform duration-300">{item.emoji}</span>
+                <span className="relative z-10 flex items-center gap-1.5 md:gap-2">
+                  <span className="text-base md:text-lg group-hover:scale-125 transition-transform duration-300">{item.emoji}</span>
                   <span
-                    className={`transition-colors duration-300 ${
+                    className={`hidden sm:inline transition-colors duration-300 ${
                       hoveredItem === item.id ? "text-primary" : "text-foreground/80"
                     }`}
                   >
@@ -81,22 +83,21 @@ export function Navigation() {
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
+          {/* CTA Button */}
+          <div className="flex items-center gap-2 flex-shrink-0">
             <Button
               size="sm"
-              className="relative bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-accent hover:to-primary font-bold px-6 py-2 rounded-full shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105 group overflow-hidden"
+              className="relative bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-4 md:px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group overflow-hidden whitespace-nowrap"
             >
               <span className="relative z-10 flex items-center gap-2">
-                <span className="group-hover:rotate-180 transition-transform duration-500">🧘</span>
-                Join the Monastery
+                <span className="group-hover:scale-125 transition-transform duration-300">💦</span>
+                <span className="hidden sm:inline">Join Now</span>
+                <span className="sm:hidden">Join</span>
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Button>
           </div>
         </div>
       </div>
-
-      <div className="h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
     </nav>
   )
 }
