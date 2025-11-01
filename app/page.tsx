@@ -281,45 +281,49 @@ export default function Home() {
               {[
                 { 
                   src: "/7b9e0446-f382-43ba-b4b8-ef8b106e8e8f.jpeg", 
-                  alt: "Monks Worshipping the NUT - Before & After Trading Discipline",
+                  alt: "The Transformation: From Chaotic Trading to Enlightened Discipline",
                   isLocal: true 
                 },
                 { 
                   src: "/ec50c5df-a77d-4234-9a23-62dd94192bad.jpeg", 
-                  alt: "Monk Holding Glowing NUT - Peace Through Discipline",
+                  alt: "Inner Peace Through Patience: The Monk's Path to Trading Enlightenment",
                   isLocal: true 
                 },
                 { 
                   src: "/photo_4913612985616501559_y.jpg", 
-                  alt: "The Sacred Oath - No Unnecessary Trades",
+                  alt: "The Sacred Vow: 'No Unnecessary Trades Until Today'",
                   isLocal: true 
                 },
                 { 
                   src: "/photo_4913612985616501560_y.jpg", 
-                  alt: "Trading Evolution - From Impulse to NUT Discipline",
+                  alt: "Evolution of the Trader: From Impulse to Mastery",
                   isLocal: true 
                 },
                 { 
                   src: "/photo_4913612985616501561_y.jpg", 
-                  alt: "Monk in Graveyard - Wisdom Over Trading Mistakes",
+                  alt: "Wisdom in the Graveyard: Learning from Past Trading Mistakes",
                   isLocal: true 
                 },
                 { 
                   src: "/f849b6fa-c847-4a9b-904d-728c82c030ca.jpeg", 
-                  alt: "Devil Tempting Monk with Candlestick Chart - Resist the Trade",
+                  alt: "The Temptation: The Devil Offers Green Candles, The Monk Chooses Silence",
                   isLocal: true 
                 },
                 { 
                   src: "/c180bb48-166f-4e36-8030-e1d6bcaaef3f.jpeg", 
-                  alt: "Warriors Charging with BUY Flag vs Calm Monk - The NUT Philosophy",
+                  alt: "The Choice: Join the FOMO Warriors or Walk Away in Peace",
                   isLocal: true 
                 },
-                { query: "funny meme about not trading at 3am crypto", alt: "3AM Trading Meme", isLocal: false },
-                { query: "meme about resisting FOMO in crypto trading", alt: "FOMO Resistance Meme", isLocal: false },
-                { query: "funny meme about checking charts too much", alt: "Chart Checking Meme", isLocal: false },
-                { query: "meme about diamond hands and holding crypto", alt: "Diamond Hands Meme", isLocal: false },
-                { query: "funny meme about touching grass instead of trading", alt: "Touch Grass Meme", isLocal: false },
-                { query: "meme about crypto trading discipline and patience", alt: "Trading Discipline Meme", isLocal: false },
+                { 
+                  src: "/790daf9b-9ea3-4f33-8e8c-084d84a78473.jpeg", 
+                  alt: "The Achievement: 30 Days of Discipline - A Hard-Won Certificate",
+                  isLocal: true 
+                },
+                { 
+                  src: "/photo_4913612985616501570_y.jpg", 
+                  alt: "The FOMO Panic: Crying at the BUY Button While Markets Rally",
+                  isLocal: true 
+                },
               ].map((meme, index) => (
                 <div
                   key={index}
@@ -365,8 +369,8 @@ export default function Home() {
                          }}>
                         <div className="relative w-full h-full flex items-center justify-center transition-all duration-700 ease-in-out group-hover:scale-[0.97]">
                           <img
-                            src={meme.isLocal ? meme.src : `/.jpg?height=400&width=400&query=${encodeURIComponent(meme.query || '')}`}
-                      alt={meme.alt}
+                            src={meme.src}
+                            alt={meme.alt}
                             className="max-w-full max-h-full w-auto h-auto transition-all duration-700 ease-in-out"
                             style={{
                               objectFit: 'cover',
@@ -401,7 +405,7 @@ export default function Home() {
                        {/* Title Text - Lighter - Fixed height for consistency */}
                        <div className="mt-4 px-3 relative min-h-[60px] flex items-center">
                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-100/30 to-transparent dark:via-amber-800/25 blur-sm"></div>
-                         <p className="text-base md:text-lg text-foreground text-center font-medium italic leading-relaxed relative z-10 w-full" 
+                         <p className="text-base md:text-lg text-foreground text-center font-bold italic leading-relaxed relative z-10 w-full" 
                             style={{ textShadow: '0 1px 2px rgba(255,255,255,0.5), 0 1px 1px rgba(0,0,0,0.05)' }}>
                            {meme.alt}
                          </p>
@@ -497,20 +501,20 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground">NUT Stats</h2>
             <p className="text-center text-muted-foreground">Totally real, definitely not made up numbers</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { title: "Buy Pressure Resisted", value: "420", desc: "Green candles ignored" },
-                { title: "Paper Hands Converted", value: "69%", desc: "Now diamond hands" },
-                { title: "Avg Time Without FOMO", value: "17", desc: "Days of peace" },
-                { title: "Liquidity Locked", value: "100%", desc: "(And urges too)" },
+                { title: "Temptations Resisted", value: "420", desc: "Green candles ignored with discipline" },
+                { title: "Warriors Converted", value: "69%", desc: "From paper hands to diamond souls" },
+                { title: "Days of Inner Peace", value: "17", desc: "Average time without FOMO" },
+                { title: "Liquidity & Urges Locked", value: "100%", desc: "Forever secure, never trading" },
               ].map((stat, index) => (
                 <Card
                   key={index}
-                  className="bg-card border-border p-6 space-y-3 shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300 hover:border-primary/50"
+                  className="bg-card border-border p-6 space-y-4 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 hover:border-primary/50 text-center"
                 >
-                  <p className="text-base md:text-lg text-muted-foreground uppercase tracking-wider">{stat.title}</p>
-                  <p className="text-4xl font-bold text-primary">{stat.value}</p>
-                  <p className="text-base md:text-lg text-muted-foreground">{stat.desc}</p>
+                  <p className="text-sm md:text-base text-muted-foreground uppercase tracking-wider font-semibold">{stat.title}</p>
+                  <p className="text-5xl md:text-6xl font-bold text-primary leading-none">{stat.value}</p>
+                  <p className="text-sm md:text-base text-muted-foreground italic">{stat.desc}</p>
                 </Card>
               ))}
             </div>
