@@ -12,7 +12,7 @@ const romanSD = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "$NUT - Nut Until Today",
+  title: "$NUT - No Unnecessary Trades",
   description: "No Unnecessary Trades. No FOMO. No surrender. Just disciplined warriors resisting the urge to ape in.",
   generator: "v0.app",
 }
