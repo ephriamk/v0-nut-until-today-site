@@ -45,14 +45,17 @@ interface GameButton {
 
 export function NutGame() {
   const [gameStats, setGameStats] = useState<GameStats>(() => {
-    try {
-      const saved = localStorage.getItem("nut-game-stats")
-      if (saved) {
-        const parsed = JSON.parse(saved)
-        return { ...INITIAL_STATS, ...parsed }
+    // Only access localStorage in the browser (client-side)
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("nut-game-stats")
+        if (saved) {
+          const parsed = JSON.parse(saved)
+          return { ...INITIAL_STATS, ...parsed }
+        }
+      } catch (e) {
+        console.error("Failed to load stats", e)
       }
-    } catch (e) {
-      console.error("Failed to load stats", e)
     }
     return INITIAL_STATS
   })

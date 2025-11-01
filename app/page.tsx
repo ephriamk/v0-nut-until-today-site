@@ -134,9 +134,21 @@ export default function Home() {
               <p className="text-sm md:text-base text-muted-foreground uppercase tracking-wider text-center mb-2">Sacred Contract</p>
               <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-shadow">
                 <code className="flex-1 text-sm md:text-base font-mono text-muted-foreground truncate">
-                  NUT7k9JRvMpJhAnZkL4aMeNvJhvzTZs7h0qstpump
+                  cuming soon
                 </code>
-                <Button size="icon" variant="ghost" className="shrink-0 hover:bg-primary/10">
+                <Button 
+                  size="icon" 
+                  variant="ghost" 
+                  className="shrink-0 hover:bg-primary/10"
+                  onClick={async () => {
+                    try {
+                      await navigator.clipboard.writeText("cuming soon")
+                      // Optional: Show a toast or feedback
+                    } catch (err) {
+                      console.error("Failed to copy:", err)
+                    }
+                  }}
+                >
                   <Copy className="h-5 w-5" />
                 </Button>
               </div>
