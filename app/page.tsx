@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Copy } from "lucide-react"
 import { Navigation } from "@/components/navigation"
-import { NutChallenge } from "@/components/nut-challenge"
+import { NutGame } from "@/components/nut-game"
 import { useEffect, useRef, useState } from "react"
 
 export default function Home() {
@@ -242,7 +242,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground">The Meme Vault</h2>
             <p className="text-center text-muted-foreground text-lg">Sacred scrolls of trading wisdom</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 { 
                   src: "/7b9e0446-f382-43ba-b4b8-ef8b106e8e8f.jpeg", 
@@ -254,6 +254,21 @@ export default function Home() {
                   alt: "Monk Holding Glowing NUT - Peace Through Discipline",
                   isLocal: true 
                 },
+                { 
+                  src: "/photo_4913612985616501559_y.jpg", 
+                  alt: "The Sacred Oath - No Unnecessary Trades",
+                  isLocal: true 
+                },
+                { 
+                  src: "/photo_4913612985616501560_y.jpg", 
+                  alt: "Trading Evolution - From Impulse to NUT Discipline",
+                  isLocal: true 
+                },
+                { 
+                  src: "/photo_4913612985616501561_y.jpg", 
+                  alt: "Monk in Graveyard - Wisdom Over Trading Mistakes",
+                  isLocal: true 
+                },
                 { query: "funny meme about not trading at 3am crypto", alt: "3AM Trading Meme", isLocal: false },
                 { query: "meme about resisting FOMO in crypto trading", alt: "FOMO Resistance Meme", isLocal: false },
                 { query: "funny meme about checking charts too much", alt: "Chart Checking Meme", isLocal: false },
@@ -261,21 +276,125 @@ export default function Home() {
                 { query: "funny meme about touching grass instead of trading", alt: "Touch Grass Meme", isLocal: false },
                 { query: "meme about crypto trading discipline and patience", alt: "Trading Discipline Meme", isLocal: false },
               ].map((meme, index) => (
-                <Card
+                <div
                   key={index}
-                  className="bg-card border-border overflow-hidden shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
+                  className="relative group"
                 >
-                  <div className="aspect-square bg-gradient-to-br from-secondary/20 to-accent/10 relative overflow-hidden">
-                    <img
-                      src={meme.isLocal ? meme.src : `/.jpg?height=400&width=400&query=${encodeURIComponent(meme.query)}`}
-                      alt={meme.alt}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                  {/* Outer Bezel Frame - Lighter */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-amber-300/40 via-amber-400/50 to-amber-300/40 dark:from-amber-800/50 dark:via-amber-700/60 dark:to-amber-800/50 rounded-2xl shadow-2xl opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                  
+                  {/* Middle Bezel Layer - Lighter */}
+                  <div className="absolute -inset-1 bg-gradient-to-br from-amber-200/30 via-amber-300/40 to-amber-400/30 dark:from-amber-700/50 dark:via-amber-600/60 dark:to-amber-500/50 rounded-xl"></div>
+                  
+                  {/* Inner Scroll Container - Much Lighter */}
+                  <div className="relative bg-gradient-to-b from-amber-50/95 via-amber-100/98 to-amber-50/95 dark:from-amber-800/60 dark:via-amber-700/70 dark:to-amber-800/60 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden rounded-lg"
+                    style={{
+                      backgroundImage: `
+                        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(184, 134, 11, 0.08) 2px, rgba(184, 134, 11, 0.08) 4px),
+                        repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(139, 90, 43, 0.04) 1px, rgba(139, 90, 43, 0.04) 2px)
+                      `
+                    }}
+                  >
+                    {/* Top Rolled Scroll Edge */}
+                    <div className="absolute top-0 left-0 right-0 h-12 z-10">
+                      <svg className="w-full h-full" viewBox="0 0 300 48" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id={`topGradient-${index}`} x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="rgb(254, 243, 199)" stopOpacity="0.9" />
+                            <stop offset="50%" stopColor="rgb(251, 191, 36)" stopOpacity="0.3" />
+                            <stop offset="100%" stopColor="rgb(217, 119, 6)" stopOpacity="0.1" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M0,48 Q75,0 150,12 Q225,0 300,12 L300,48 Z" 
+                              fill={`url(#topGradient-${index})`}
+                              className="dark:opacity-60"/>
+                      </svg>
+                    </div>
+                    
+                    {/* Main Content Area */}
+                    <div className="pt-14 pb-14 px-6 relative z-0">
+                       {/* Image Container with Inner Shadow - Lighter */}
+                       <div className="aspect-square relative overflow-hidden rounded-sm border-2 border-amber-200/60 dark:border-amber-600/50 shadow-xl bg-white/50 dark:bg-black/20" 
+                         style={{
+                           boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.08), 0 4px 16px rgba(217, 119, 6, 0.2)'
+                         }}>
+                        <img
+                          src={meme.isLocal ? meme.src : `/.jpg?height=400&width=400&query=${encodeURIComponent(meme.query)}`}
+                          alt={meme.alt}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        {/* Inner vignette */}
+                        <div className="absolute inset-0 pointer-events-none" style={{
+                          background: 'radial-gradient(circle, transparent 0%, transparent 70%, rgba(0,0,0,0.05) 100%)'
+                        }}></div>
+                      </div>
+                      
+                       {/* Title Text - Lighter */}
+                       <div className="mt-6 px-4 relative">
+                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-100/30 to-transparent dark:via-amber-800/25 blur-sm"></div>
+                         <p className="text-base md:text-lg text-foreground text-center font-medium italic leading-relaxed relative z-10" 
+                            style={{ textShadow: '0 1px 2px rgba(255,255,255,0.5), 0 1px 1px rgba(0,0,0,0.05)' }}>
+                           {meme.alt}
+                         </p>
+                       </div>
+                    </div>
+                    
+                    {/* Bottom Rolled Scroll Edge */}
+                    <div className="absolute bottom-0 left-0 right-0 h-12 z-10">
+                      <svg className="w-full h-full" viewBox="0 0 300 48" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id={`bottomGradient-${index}`} x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="rgb(217, 119, 6)" stopOpacity="0.1" />
+                            <stop offset="50%" stopColor="rgb(251, 191, 36)" stopOpacity="0.3" />
+                            <stop offset="100%" stopColor="rgb(254, 243, 199)" stopOpacity="0.9" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M0,0 Q75,48 150,36 Q225,48 300,36 L300,0 Z" 
+                              fill={`url(#bottomGradient-${index})`}
+                              className="dark:opacity-60"/>
+                      </svg>
+                    </div>
+                    
+                    {/* Aged Parchment Texture - Lighter */}
+                    <div 
+                      className="absolute inset-0 pointer-events-none opacity-15 z-0" 
+                      style={{
+                        backgroundImage: `
+                          radial-gradient(circle at 15% 25%, rgba(251, 191, 36, 0.08) 0%, transparent 40%),
+                          radial-gradient(circle at 85% 75%, rgba(217, 119, 6, 0.06) 0%, transparent 40%),
+                          radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 60%),
+                          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(217, 119, 6, 0.02) 10px, rgba(217, 119, 6, 0.02) 11px)
+                        `,
+                      }}
+                    ></div>
+                    
+                    {/* Left Edge Shadow - Lighter */}
+                    <div className="absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-amber-700/20 via-amber-600/12 to-transparent dark:from-amber-800/30 dark:via-amber-700/20"></div>
+                    <div className="absolute inset-y-0 right-0 w-3 bg-gradient-to-l from-amber-700/20 via-amber-600/12 to-transparent dark:from-amber-800/30 dark:via-amber-700/20"></div>
+                    
+                    {/* Decorative Scroll Rods (Left & Right) - Lighter */}
+                    <div className="absolute top-0 bottom-0 left-0 w-1.5 bg-gradient-to-b from-amber-500/50 via-amber-400/40 to-amber-500/50 dark:from-amber-700/60 dark:via-amber-600/50 dark:to-amber-700/60"></div>
+                    <div className="absolute top-0 bottom-0 right-0 w-1.5 bg-gradient-to-b from-amber-500/50 via-amber-400/40 to-amber-500/50 dark:from-amber-700/60 dark:via-amber-600/50 dark:to-amber-700/60"></div>
+                    
+                    {/* Ornamental Corner Details - Lighter */}
+                    <div className="absolute top-3 left-3 w-4 h-4">
+                      <div className="w-full h-full border-t-2 border-l-2 border-amber-500/40 dark:border-amber-500/50 rounded-tl-lg"></div>
+                      <div className="absolute -top-1 -left-1 w-2 h-2 bg-amber-500/25 dark:bg-amber-500/35 rounded-full"></div>
+                    </div>
+                    <div className="absolute top-3 right-3 w-4 h-4">
+                      <div className="w-full h-full border-t-2 border-r-2 border-amber-500/40 dark:border-amber-500/50 rounded-tr-lg"></div>
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500/25 dark:bg-amber-500/35 rounded-full"></div>
+                    </div>
+                    <div className="absolute bottom-3 left-3 w-4 h-4">
+                      <div className="w-full h-full border-b-2 border-l-2 border-amber-500/40 dark:border-amber-500/50 rounded-bl-lg"></div>
+                      <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-amber-500/25 dark:bg-amber-500/35 rounded-full"></div>
+                    </div>
+                    <div className="absolute bottom-3 right-3 w-4 h-4">
+                      <div className="w-full h-full border-b-2 border-r-2 border-amber-500/40 dark:border-amber-500/50 rounded-br-lg"></div>
+                      <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-amber-500/25 dark:bg-amber-500/35 rounded-full"></div>
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <p className="text-base md:text-lg text-muted-foreground text-center">{meme.alt}</p>
-                  </div>
-                </Card>
+                </div>
               ))}
             </div>
           </div>
@@ -290,11 +409,11 @@ export default function Home() {
         >
           <div className="max-w-4xl mx-auto space-y-8">
             <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground">The NUT Challenge</h2>
-            <p className="text-center text-xl text-muted-foreground">
-              Can you last 30 days without an unnecessary trade?
+            <p className="text-center text-xl md:text-2xl text-muted-foreground">
+              Test your discipline! Resist temptation and collect NUTs!
             </p>
 
-            <NutChallenge />
+            <NutGame />
           </div>
         </section>
 

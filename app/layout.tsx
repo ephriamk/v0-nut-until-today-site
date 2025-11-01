@@ -5,9 +5,9 @@ import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
-const spartacus = localFont({
-  src: "./fonts/Spartacus-KVdLp.ttf",
-  variable: "--font-spartacus",
+const romanSD = localFont({
+  src: "./fonts/Roman SD.ttf",
+  variable: "--font-roman",
   display: "swap",
 })
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${spartacus.variable} font-sans antialiased`}>
+      <body className={`${romanSD.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           {children}
         </ThemeProvider>
