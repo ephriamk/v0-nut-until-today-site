@@ -125,7 +125,7 @@ export default function Home() {
               <p className="text-sm md:text-base text-muted-foreground uppercase tracking-wider text-center mb-2">Sacred Contract</p>
               <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-shadow">
                 <code className="flex-1 text-sm md:text-base font-mono text-muted-foreground truncate">
-                  cuming soon
+                E33hzWiLQimBYpiy2aYSArYzC1EX5NsPDi7S9yQvpump
                 </code>
                 <Button 
                   size="icon" 
