@@ -133,7 +133,7 @@ export default function Home() {
                   className="shrink-0 hover:bg-primary/10"
                   onClick={async () => {
                     try {
-                      await navigator.clipboard.writeText("cuming soon")
+                      await navigator.clipboard.writeText("E33hzWiLQimBYpiy2aYSArYzC1EX5NsPDi7S9yQvpump")
                       // Optional: Show a toast or feedback
                     } catch (err) {
                       console.error("Failed to copy:", err)
