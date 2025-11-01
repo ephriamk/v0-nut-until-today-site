@@ -117,16 +117,7 @@ export default function Home() {
               >
                 𝕏 Join the Monastery
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary/50 text-foreground hover:bg-primary/10 bg-card/50 hover:scale-105 transition-transform"
-                onClick={() => {
-                  window.open("https://discord.gg/nut-token", "_blank", "noopener,noreferrer")
-                }}
-              >
-                💬 Confess Your FOMOs
-              </Button>
+              
             </div>
 
             {/* Contract Address */}
