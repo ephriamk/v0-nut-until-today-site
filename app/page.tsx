@@ -49,8 +49,25 @@ export default function Home() {
             </div>
 
             <div className="flex justify-center animate-slide-up">
-              <div className="relative h-64 w-64 md:h-96 md:w-96 rounded-2xl bg-gradient-to-br from-secondary/30 to-accent/20 overflow-hidden border-4 border-primary/40 shadow-2xl hover:scale-105 transition-transform duration-300 hover:rotate-2">
-                <img src="/zen-trader.png" alt="The Enlightened Trader" className="h-full w-full object-contain" />
+              <div className="relative group">
+                {/* Outer Glow Ring - Breathing Effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-3xl opacity-60 animate-breathe"></div>
+                
+                {/* Middle Glow */}
+                <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary/10 via-accent/15 to-primary/10 blur-2xl opacity-40 animate-breathe-delayed"></div>
+                
+                {/* Main Container - Transparent background to show image better */}
+                <div className="relative z-10 h-64 w-64 md:h-96 md:w-96 flex items-center justify-center transition-all duration-700">
+                  {/* Subtle backdrop for contrast */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-card/40 via-card/20 to-card/40 backdrop-blur-sm border-2 border-primary/20 shadow-2xl transition-all duration-700 group-hover:border-primary/40 group-hover:shadow-[0_0_40px_rgba(251,191,36,0.3)] group-hover:bg-gradient-to-br group-hover:from-card/50 group-hover:via-card/30 group-hover:to-card/50"></div>
+                  
+                  {/* Image - Transparent PNG */}
+                  <img 
+                    src="/d1bf5e28-4cd6-4bcf-8fdc-92f48a4ab458.png" 
+                    alt="The Enlightened Trader - Monk with Trading Wisdom" 
+                    className="relative z-10 h-full w-full object-contain p-6 md:p-8 transition-all duration-700 group-hover:scale-[1.02] drop-shadow-2xl" 
+                  />
+                </div>
               </div>
             </div>
 
