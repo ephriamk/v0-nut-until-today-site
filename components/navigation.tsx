@@ -63,7 +63,7 @@ export function Navigation() {
                 onClick={() => scrollToSection(item.id)}
                 onMouseEnter={() => setHoveredItem(item.id)}
                 onMouseLeave={() => setHoveredItem(null)}
-                className="relative px-3 md:px-4 py-2 rounded-lg font-semibold text-xs md:text-sm transition-all duration-300 hover:scale-105 group"
+                className="relative px-3 md:px-4 py-2 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 group"
               >
                 <span className="relative z-10 flex items-center gap-1.5 md:gap-2">
                   <span className="text-base md:text-lg group-hover:scale-125 transition-transform duration-300">{item.emoji}</span>

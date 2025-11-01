@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Copy } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { NutChallenge } from "@/components/nut-challenge"
 import { useEffect, useRef, useState } from "react"
 
 export default function Home() {
@@ -95,13 +96,13 @@ export default function Home() {
 
             {/* Contract Address */}
             <div className="max-w-2xl mx-auto animate-fade-in-delay-3">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider text-center mb-2">Sacred Contract</p>
+              <p className="text-sm md:text-base text-muted-foreground uppercase tracking-wider text-center mb-2">Sacred Contract</p>
               <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-shadow">
-                <code className="flex-1 text-xs md:text-sm font-mono text-muted-foreground truncate">
+                <code className="flex-1 text-sm md:text-base font-mono text-muted-foreground truncate">
                   NUT7k9JRvMpJhAnZkL4aMeNvJhvzTZs7h0qstpump
                 </code>
                 <Button size="icon" variant="ghost" className="shrink-0 hover:bg-primary/10">
-                  <Copy className="h-4 w-4" />
+                  <Copy className="h-5 w-5" />
                 </Button>
               </div>
             </div>
@@ -120,7 +121,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
                 The Ten Commandments of NUT
               </h2>
-              <p className="text-muted-foreground text-sm uppercase tracking-wider">Sacred Principles for the Disciplined Trader</p>
+              <p className="text-muted-foreground text-base md:text-lg uppercase tracking-wider">Sacred Principles for the Disciplined Trader</p>
             </div>
 
             <Card className="bg-card border-2 border-primary/20 shadow-xl overflow-hidden">
@@ -181,9 +182,9 @@ export default function Home() {
                   key={index}
                   className="bg-card border-border p-6 space-y-3 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 hover:border-primary/50"
                 >
-                  <p className="text-sm text-muted-foreground uppercase tracking-wider">{item.title}</p>
+                  <p className="text-base md:text-lg text-muted-foreground uppercase tracking-wider">{item.title}</p>
                   <p className="text-4xl font-bold text-primary">{item.percent}</p>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <p className="text-base md:text-lg text-muted-foreground">{item.desc}</p>
                 </Card>
               ))}
             </div>
@@ -206,7 +207,7 @@ export default function Home() {
                 <span className="text-primary font-bold text-2xl">69%</span> increase in peace, patience, and portfolio
                 longevity. Coincidence? We think NUT."
               </p>
-              <p className="text-sm text-muted-foreground text-center mt-4 italic">
+              <p className="text-base md:text-lg text-muted-foreground text-center mt-4 italic">
                 *Not actual science. But it feels true, doesn't it?
               </p>
             </Card>
@@ -223,7 +224,7 @@ export default function Home() {
                 >
                   <div className="text-4xl mb-3">{item.emoji}</div>
                   <p className="font-bold text-foreground mb-2">{item.title}</p>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <p className="text-base md:text-lg text-muted-foreground">{item.desc}</p>
                 </Card>
               ))}
             </div>
@@ -262,7 +263,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4">
-                    <p className="text-sm text-muted-foreground text-center">{meme.alt}</p>
+                    <p className="text-base md:text-lg text-muted-foreground text-center">{meme.alt}</p>
                   </div>
                 </Card>
               ))}
@@ -283,44 +284,7 @@ export default function Home() {
               Can you last 30 days without an unnecessary trade?
             </p>
 
-            <Card className="bg-card border-2 border-primary/40 p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <div className="text-center space-y-6">
-                <div className="text-6xl font-bold text-primary animate-pulse-slow">30 Days</div>
-                <p className="text-lg text-foreground">of Trading Discipline</p>
-                <Button
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold hover:scale-110 transition-transform"
-                >
-                  Start Your Journey
-                </Button>
-              </div>
-            </Card>
-
-            <div className="space-y-4 mt-8">
-              <h3 className="text-2xl font-bold text-center text-foreground mb-6">Progression Titles</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {[
-                  { day: "Day 1", title: "The Seed of Discipline" },
-                  { day: "Day 7", title: "Temptation Resister" },
-                  { day: "Day 15", title: "Chart Abstinent" },
-                  { day: "Day 21", title: "FOMO Destroyer" },
-                  { day: "Day 28", title: "Diamond Soul" },
-                  { day: "Day 30", title: "Grandmaster of Patience", special: true },
-                ].map((item, index) => (
-                  <Card
-                    key={index}
-                    className={`bg-card border-border p-6 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 ${
-                      item.special ? "border-primary/50" : ""
-                    }`}
-                  >
-                    <p className="text-sm text-muted-foreground mb-2">{item.day}</p>
-                    <p className={`text-lg font-bold ${item.special ? "text-primary" : "text-foreground"}`}>
-                      {item.title}
-                    </p>
-                  </Card>
-                ))}
-              </div>
-            </div>
+            <NutChallenge />
           </div>
         </section>
 
@@ -346,9 +310,9 @@ export default function Home() {
                   key={index}
                   className="bg-card border-border p-6 space-y-3 shadow-md hover:shadow-xl hover:scale-110 transition-all duration-300 hover:border-primary/50"
                 >
-                  <p className="text-sm text-muted-foreground uppercase tracking-wider">{stat.title}</p>
+                  <p className="text-base md:text-lg text-muted-foreground uppercase tracking-wider">{stat.title}</p>
                   <p className="text-4xl font-bold text-primary">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground">{stat.desc}</p>
+                  <p className="text-base md:text-lg text-muted-foreground">{stat.desc}</p>
                 </Card>
               ))}
             </div>
@@ -371,7 +335,7 @@ export default function Home() {
                     day 23 of NUT. haven't checked dexscreener in 3 weeks. touched grass. drank water. my portfolio is
                     still down but my soul is up. this is the way. 🧘📈✨
                   </p>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4 text-base md:text-lg text-muted-foreground">
                     <span>4:20 PM · Nov 23, 2025</span>
                     <span>·</span>
                     <span>420K Views</span>
@@ -401,14 +365,14 @@ export default function Home() {
         </section>
 
         <footer className="border-t border-border px-4 py-8 mt-16 bg-card/50">
-          <div className="max-w-5xl mx-auto text-center text-sm text-muted-foreground space-y-2">
-            <p className="text-foreground font-semibold">$NUT - No Unnecessary Trades</p>
+          <div className="max-w-5xl mx-auto text-center text-base md:text-lg text-muted-foreground space-y-2">
+            <p className="text-foreground font-semibold text-lg md:text-xl">$NUT - No Unnecessary Trades</p>
             <p>
               A movement for traders who are tired of getting rekt at 3 AM. Practice discipline. Touch grass. Drink
               water.
             </p>
             <p>This is not financial advice. This is barely even a token. But it might save your portfolio.</p>
-            <p className="text-xs pt-4">DYOR. NFA. WAGMI if you can resist the FOMO. 🧘</p>
+            <p className="text-sm md:text-base pt-4">DYOR. NFA. WAGMI if you can resist the FOMO. 🧘</p>
           </div>
         </footer>
       </main>

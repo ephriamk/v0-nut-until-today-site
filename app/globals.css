@@ -123,11 +123,40 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-spartacus), serif;
+    font-size: 16px;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-spartacus), serif;
     font-weight: 700;
     letter-spacing: 0.02em;
+  }
+  p, span, div, a, button, li, td, th, label, input, textarea, select {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .text-sm {
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+  }
+  .text-xs {
+    font-size: 0.875rem !important;
+    line-height: 1.4;
+  }
+  .text-base {
+    font-size: 1.1rem !important;
+    line-height: 1.6;
+  }
+  .text-lg {
+    font-size: 1.25rem !important;
+    line-height: 1.7;
+  }
+  .text-xl {
+    font-size: 1.5rem !important;
+    line-height: 1.7;
+  }
+  .text-2xl {
+    font-size: 1.875rem !important;
+    line-height: 1.8;
   }
 }
 
