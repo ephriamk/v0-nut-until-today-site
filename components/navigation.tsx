@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { useState, useEffect } from "react"
 
 export function Navigation() {
@@ -83,8 +84,9 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button & Theme Toggle */}
           <div className="flex items-center gap-2 flex-shrink-0">
+            <ThemeToggle />
             <Button
               size="sm"
               className="relative bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-4 md:px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group overflow-hidden whitespace-nowrap"

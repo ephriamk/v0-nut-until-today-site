@@ -115,33 +115,45 @@ export default function Home() {
             isVisible["commandments"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-4xl md:text-6xl font-bold text-center text-balance text-foreground">
-              The Ten Commandments of NUT
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                "I. Thou shalt not market buy at 3 AM.",
-                "II. Thou shalt not chase green candles.",
-                "III. Thou shalt not check DexScreener every 10 minutes.",
-                "IV. Thou shalt hodl until enlightenment (or the dev rugs).",
-                "V. If tempted, go outside. Touch grass.",
-                "VI. Drink water. Stay hydrated, not liquidated.",
-                "VII. Thou shalt not FOMO into rugs.",
-                "VIII. Thou shalt not revenge trade.",
-                "IX. Thou shalt not ape thy entire stack.",
-                "X. Thou shalt remember: discipline > dopamine.",
-              ].map((commandment, index) => (
-                <Card
-                  key={index}
-                  className="bg-card border-border p-6 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 hover:border-primary/50"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <p className="text-lg font-semibold text-foreground">{commandment}</p>
-                </Card>
-              ))}
+          <div className="max-w-6xl mx-auto space-y-10">
+            <div className="text-center space-y-2">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+                The Ten Commandments of NUT
+              </h2>
+              <p className="text-muted-foreground text-sm uppercase tracking-wider">Sacred Principles for the Disciplined Trader</p>
             </div>
+
+            <Card className="bg-card border-2 border-primary/20 shadow-xl overflow-hidden">
+              <div className="divide-y divide-border">
+                {[
+                  { number: "I", text: "Thou shalt not market buy at 3 AM." },
+                  { number: "II", text: "Thou shalt not chase green candles." },
+                  { number: "III", text: "Thou shalt not check DexScreener every 10 minutes." },
+                  { number: "IV", text: "Thou shalt hodl until enlightenment (or the dev rugs)." },
+                  { number: "V", text: "If tempted, go outside. Touch grass." },
+                  { number: "VI", text: "Drink water. Stay hydrated, not liquidated." },
+                  { number: "VII", text: "Thou shalt not FOMO into rugs." },
+                  { number: "VIII", text: "Thou shalt not revenge trade." },
+                  { number: "IX", text: "Thou shalt not ape thy entire stack." },
+                  { number: "X", text: "Thou shalt remember: discipline > dopamine." },
+                ].map((commandment, index) => (
+                  <div
+                    key={index}
+                    className="group px-6 py-4 md:px-8 md:py-5 hover:bg-primary/5 transition-colors duration-200"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <div className="flex items-center gap-4 md:gap-6">
+                      <div className="flex-shrink-0 w-12 md:w-14 h-12 md:h-14 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/50 transition-all duration-200">
+                        <span className="text-lg md:text-xl font-bold text-primary">{commandment.number}</span>
+                      </div>
+                      <p className="flex-1 text-base md:text-lg font-medium text-foreground whitespace-nowrap overflow-hidden text-ellipsis">
+                        {commandment.text}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
           </div>
         </section>
 
