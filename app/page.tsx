@@ -112,7 +112,7 @@ export default function Home() {
                 variant="outline"
                 className="border-primary/50 text-foreground hover:bg-primary/10 bg-card/50 hover:scale-105 transition-transform"
                 onClick={() => {
-                  window.open("https://x.com/nut_token", "_blank", "noopener,noreferrer")
+                  window.open("https://x.com/i/communities/1984748228378837134/", "_blank", "noopener,noreferrer")
                 }}
               >
                 𝕏 Join the Monastery
