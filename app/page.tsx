@@ -244,12 +244,22 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { query: "funny meme about not trading at 3am crypto", alt: "3AM Trading Meme" },
-                { query: "meme about resisting FOMO in crypto trading", alt: "FOMO Resistance Meme" },
-                { query: "funny meme about checking charts too much", alt: "Chart Checking Meme" },
-                { query: "meme about diamond hands and holding crypto", alt: "Diamond Hands Meme" },
-                { query: "funny meme about touching grass instead of trading", alt: "Touch Grass Meme" },
-                { query: "meme about crypto trading discipline and patience", alt: "Trading Discipline Meme" },
+                { 
+                  src: "/7b9e0446-f382-43ba-b4b8-ef8b106e8e8f.jpeg", 
+                  alt: "Monks Worshipping the NUT - Before & After Trading Discipline",
+                  isLocal: true 
+                },
+                { 
+                  src: "/ec50c5df-a77d-4234-9a23-62dd94192bad.jpeg", 
+                  alt: "Monk Holding Glowing NUT - Peace Through Discipline",
+                  isLocal: true 
+                },
+                { query: "funny meme about not trading at 3am crypto", alt: "3AM Trading Meme", isLocal: false },
+                { query: "meme about resisting FOMO in crypto trading", alt: "FOMO Resistance Meme", isLocal: false },
+                { query: "funny meme about checking charts too much", alt: "Chart Checking Meme", isLocal: false },
+                { query: "meme about diamond hands and holding crypto", alt: "Diamond Hands Meme", isLocal: false },
+                { query: "funny meme about touching grass instead of trading", alt: "Touch Grass Meme", isLocal: false },
+                { query: "meme about crypto trading discipline and patience", alt: "Trading Discipline Meme", isLocal: false },
               ].map((meme, index) => (
                 <Card
                   key={index}
@@ -257,7 +267,7 @@ export default function Home() {
                 >
                   <div className="aspect-square bg-gradient-to-br from-secondary/20 to-accent/10 relative overflow-hidden">
                     <img
-                      src={`/.jpg?height=400&width=400&query=${encodeURIComponent(meme.query)}`}
+                      src={meme.isLocal ? meme.src : `/.jpg?height=400&width=400&query=${encodeURIComponent(meme.query)}`}
                       alt={meme.alt}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
