@@ -85,6 +85,12 @@ export default function Home() {
               <Button
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold shadow-lg hover:scale-105 transition-transform"
+                onClick={() => {
+                  const challengeSection = document.getElementById("challenge")
+                  if (challengeSection) {
+                    challengeSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }
+                }}
               >
                 Take the Pledge
               </Button>
@@ -92,6 +98,12 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 className="border-primary/50 text-foreground hover:bg-primary/10 bg-card/50 hover:scale-105 transition-transform"
+                onClick={() => {
+                  const challengeSection = document.getElementById("challenge")
+                  if (challengeSection) {
+                    challengeSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }
+                }}
               >
                 📈 Resist the Charts
               </Button>
@@ -99,6 +111,9 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 className="border-primary/50 text-foreground hover:bg-primary/10 bg-card/50 hover:scale-105 transition-transform"
+                onClick={() => {
+                  window.open("https://x.com/nut_token", "_blank", "noopener,noreferrer")
+                }}
               >
                 𝕏 Join the Monastery
               </Button>
@@ -106,6 +121,9 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 className="border-primary/50 text-foreground hover:bg-primary/10 bg-card/50 hover:scale-105 transition-transform"
+                onClick={() => {
+                  window.open("https://discord.gg/nut-token", "_blank", "noopener,noreferrer")
+                }}
               >
                 💬 Confess Your FOMOs
               </Button>
@@ -291,6 +309,11 @@ export default function Home() {
                   alt: "Devil Tempting Monk with Candlestick Chart - Resist the Trade",
                   isLocal: true 
                 },
+                { 
+                  src: "/c180bb48-166f-4e36-8030-e1d6bcaaef3f.jpeg", 
+                  alt: "Warriors Charging with BUY Flag vs Calm Monk - The NUT Philosophy",
+                  isLocal: true 
+                },
                 { query: "funny meme about not trading at 3am crypto", alt: "3AM Trading Meme", isLocal: false },
                 { query: "meme about resisting FOMO in crypto trading", alt: "FOMO Resistance Meme", isLocal: false },
                 { query: "funny meme about checking charts too much", alt: "Chart Checking Meme", isLocal: false },
@@ -336,15 +359,39 @@ export default function Home() {
                     {/* Main Content Area */}
                     <div className="pt-10 pb-10 px-4 relative z-0 flex flex-col">
                        {/* Image Container with Inner Shadow - Fixed height for uniform cards */}
-                       <div className="relative h-[320px] w-full overflow-hidden rounded-sm border-2 border-amber-200/60 dark:border-amber-600/50 shadow-xl bg-white/50 dark:bg-black/20" 
+                       <div className="relative h-[320px] w-full overflow-hidden rounded-sm border-2 border-amber-200/60 dark:border-amber-600/50 shadow-xl bg-white/50 dark:bg-black/20 group/image-group" 
                          style={{
                            boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.08), 0 4px 16px rgba(217, 119, 6, 0.2)'
                          }}>
-                        <img
-                          src={meme.isLocal ? meme.src : `/.jpg?height=400&width=400&query=${encodeURIComponent(meme.query || '')}`}
+                        <div className="relative w-full h-full flex items-center justify-center transition-all duration-700 ease-in-out group-hover:scale-[0.97]">
+                          <img
+                            src={meme.isLocal ? meme.src : `/.jpg?height=400&width=400&query=${encodeURIComponent(meme.query || '')}`}
                       alt={meme.alt}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
+                            className="max-w-full max-h-full w-auto h-auto transition-all duration-700 ease-in-out"
+                            style={{
+                              objectFit: 'cover',
+                              width: '100%',
+                              height: '100%',
+                              transition: 'object-fit 700ms cubic-bezier(0.4, 0, 0.2, 1), width 700ms cubic-bezier(0.4, 0, 0.2, 1), height 700ms cubic-bezier(0.4, 0, 0.2, 1)'
+                            }}
+                            onMouseEnter={(e) => {
+                              const img = e.currentTarget
+                              img.style.objectFit = 'contain'
+                              img.style.width = 'auto'
+                              img.style.height = 'auto'
+                              img.style.maxWidth = '100%'
+                              img.style.maxHeight = '100%'
+                            }}
+                            onMouseLeave={(e) => {
+                              const img = e.currentTarget
+                              img.style.objectFit = 'cover'
+                              img.style.width = '100%'
+                              img.style.height = '100%'
+                              img.style.maxWidth = 'none'
+                              img.style.maxHeight = 'none'
+                            }}
+                          />
+                        </div>
                         {/* Inner vignette */}
                         <div className="absolute inset-0 pointer-events-none" style={{
                           background: 'radial-gradient(circle, transparent 0%, transparent 70%, rgba(0,0,0,0.05) 100%)'

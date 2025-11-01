@@ -27,11 +27,11 @@ const INITIAL_STATS: GameStats = {
 }
 
 const DIFFICULTY = [
-  { name: "Apprentice", fallSpeed: 1.5, spawnRate: 2000, nutRatio: 0.7 },
-  { name: "Novice", fallSpeed: 2, spawnRate: 1700, nutRatio: 0.65 },
-  { name: "Warrior", fallSpeed: 2.5, spawnRate: 1400, nutRatio: 0.6 },
-  { name: "Master", fallSpeed: 3, spawnRate: 1200, nutRatio: 0.55 },
-  { name: "Grandmaster", fallSpeed: 3.5, spawnRate: 1000, nutRatio: 0.5 },
+  { name: "Apprentice", fallSpeed: 3, spawnRate: 2000, nutRatio: 0.7 },
+  { name: "Novice", fallSpeed: 4, spawnRate: 1700, nutRatio: 0.65 },
+  { name: "Warrior", fallSpeed: 5, spawnRate: 1400, nutRatio: 0.6 },
+  { name: "Master", fallSpeed: 6, spawnRate: 1200, nutRatio: 0.55 },
+  { name: "Grandmaster", fallSpeed: 7, spawnRate: 1000, nutRatio: 0.5 },
 ]
 
 interface GameButton {
@@ -104,9 +104,9 @@ export function NutGame() {
     return () => clearInterval(interval)
   }, [particles.length])
 
-  // Main game loop - smooth falling
+  // Main game loop - smooth Tetris-like falling
   useEffect(() => {
-    if (!isPlaying || gameOver) {
+    if (!isPlaying || gameOver || showRoundComplete) {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current)
         animationFrameRef.current = null
@@ -114,7 +114,7 @@ export function NutGame() {
       return
     }
 
-    const gameLoop = (timestamp: number) => {
+    const gameLoop = () => {
       if (!gameAreaRef.current) {
         animationFrameRef.current = requestAnimationFrame(gameLoop)
         return
@@ -127,6 +127,7 @@ export function NutGame() {
       setButtons((prevButtons) => {
         const updated = prevButtons
           .map((btn) => {
+            // Smooth, constant falling speed like Tetris
             const newY = btn.y + fallSpeed
             const newRotation = btn.rotation + 0.5
 
@@ -161,9 +162,10 @@ export function NutGame() {
     return () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current)
+        animationFrameRef.current = null
       }
     }
-  }, [isPlaying, gameOver, gameStats.gameLevel])
+  }, [isPlaying, gameOver, gameStats.gameLevel, showRoundComplete])
 
   // Spawn buttons
   useEffect(() => {
@@ -459,7 +461,7 @@ export function NutGame() {
                 e.preventDefault()
                 handleButtonClick(button)
               }}
-              className={`absolute cursor-pointer select-none transition-all ${
+              className={`absolute cursor-pointer select-none ${
                 button.type === "temptation"
                   ? "hover:scale-110"
                   : "hover:scale-110 active:scale-95"
@@ -470,6 +472,7 @@ export function NutGame() {
                 transform: `translate(-50%, -50%) rotate(${button.rotation}deg)`,
                 pointerEvents: "auto",
                 willChange: "transform",
+                transformOrigin: "center center",
               }}
             >
               <div
